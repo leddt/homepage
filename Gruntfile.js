@@ -341,6 +341,17 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    'ftp-deploy': {
+      azure: {
+        auth: {
+          host: 'waws-prod-blu-003.ftp.azurewebsites.windows.net',
+          port: 21,
+        },
+        src: 'dist',
+        dest: 'site/wwwroot',
+        exclusions: ['dist/bower_components']
+      }
     }
   });
 
