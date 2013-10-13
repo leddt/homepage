@@ -1,0 +1,15 @@
+<div class="feed">
+    <h1><a href="{{link}}">{{title}}</a></h1>
+    <ul class="thumbnails">
+      <li class="thumbnail" ng-repeat="item in items">
+        <div class="caption">
+          <a href="{{item.link}}">{{item.title}}</a>
+          <p ng-show="item.date">{{item.date | date:'yyyy-MM-dd HH:mm'}}</p>
+          <p ng-bind-html-unsafe="item.content"></p>
+          <p ng-show="item.tags">
+              <span class="label" ng-repeat="tag in item.tags">#{{tag}}</span>
+          </p>
+        </div>
+      </li>
+    </ul>
+</div>

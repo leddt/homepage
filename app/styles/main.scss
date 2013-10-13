@@ -1,0 +1,26 @@
+$iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+
+@import "bootstrap-sass/lib/bootstrap";
+@import "bootstrap-sass/lib/responsive";
+
+/* Put your CSS here */
+html, body {
+  margin: 20px;
+}
+
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.feed {
+  .thumbnail {
+    width: 100%;
+    background-color: #fff;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  p { margin: 10px 0 0 0; }
+}
