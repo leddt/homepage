@@ -10,6 +10,8 @@ Warning
 
 This is a personal project, and features are only added as I need them. The code is up for people who might be interested, but in no way should this be considered *good code*. Things are mostly hacked together so that they will work **for me**.
 
+There are no tests.
+
 Developper installation
 -----------------------
 
