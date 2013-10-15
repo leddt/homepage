@@ -27,3 +27,14 @@ body {
   }
   p { margin: 5px 0 0 0; }
 }
+
+.widget header {
+  aside {
+    float: right;
+    margin-left: 5px;
+    color: #ccc;
+    text-align: right;
+    font-size: 80%;
+    line-height: 1.1em;
+  }
+}
