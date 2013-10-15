@@ -23,6 +23,8 @@ The following tools are needed:
 
 Clone the repo, and then run `npm install && bower install` to download the dependencies.
 
+You can then run `grunt server` to launch a local server with livereload.
+
 Deployment
 ----------
 

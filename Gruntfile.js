@@ -71,8 +71,7 @@ module.exports = function (grunt) {
     connect: {
       options: {
         port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
-        hostname: '0.0.0.0'
+        hostname: '127.0.0.1'
       },
       livereload: {
         options: {
@@ -107,7 +106,7 @@ module.exports = function (grunt) {
     },
     open: {
       server: {
-        url: 'http://0.0.0.0:<%= connect.options.port %>'
+        url: 'http://127.0.0.1:<%= connect.options.port %>'
       }
     },
     clean: {
