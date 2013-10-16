@@ -1,7 +1,7 @@
 Homepage
 ========
 
-A very basic homepage to replace my iGoogle page. 
+A very basic homepage to replace my iGoogle page. Live at http://leddt-home.azurewebsites.net/
 
 Currently, no backend is necessary, but this may change if some feature needs one.
 
