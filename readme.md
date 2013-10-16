@@ -28,7 +28,9 @@ You can then run `grunt server` to launch a local server with livereload.
 Deployment
 ----------
 
-Run `grunt build` to build the project. This will create a dist folder with everything needed to run the app. Note that the way things are setup right now, the `bower_components` folder does not have to be deployed.
+You should edit index.html to change the GA tracking ID (or just remove the tracking code).
+
+Run `grunt build` to build the project. This will create a dist folder with everything needed to run the app. Note that the way things are setup right now, the `bower_components` folder does not have to be deployed, unless you want to support IE < 9.
 
 You can setup FTP publishing by editing `Gruntfile.js`. Find the line containing `ftp-deploy` and edit to your liking. Then, add an `.ftppass` file to the root of the project, containing this:
 
