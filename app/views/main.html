@@ -8,5 +8,14 @@
       <h3>Experimental stuff</h3>
       <button ng-click="addGoogleAccount()">Google test</button>
       <button ng-click="resetGoogleAccounts()">Reset</button>
+
+      <div ng-show="inboxes.length > 0">
+        <h4>Unread emails</h4>
+        <ul>
+          <li ng-repeat="inbox in inboxes">
+            <strong>{{inbox.unreadCount}}</strong> in {{inbox.email}}
+          </li>
+        </ul>
+      </div>
     </div>
 </div>

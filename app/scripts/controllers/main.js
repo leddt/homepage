@@ -1,28 +1,31 @@
 'use strict';
 
 angular.module('homepageApp')
-  .controller('MainCtrl', function ($scope, $http, xmlFilter, Storage, Google) {
+  .controller('MainCtrl', function ($scope, $http, xmlFilter, Storage, Google, Gmail) {
     $scope.calendars = [
       {src:'thibault.david@gmail.com', color: '#2952A3'},
       {src:'2g5hhq1d0nk373earfrnlb37k8@group.calendar.google.com', color: '#B1365F'},
       {src:'david.thibault@sigmund.ca', color: '#8C500B'}
     ];
 
-    var accounts = Storage.get("google_accounts") || {};
-    for (var account in accounts) {
-      $http.get("/proxy.js?url=" + encodeURIComponent("https://mail.google.com/mail/feed/atom"), {
-        headers: {
-          "Authorization": "Bearer " + accounts[account].access_token
-        }
-      }).then(function(response) {
-        var feed = xmlFilter(response.data);
-
-        console.log(feed.find("fullcount").text());
-      });
-    }
-
     $scope.addGoogleAccount = Google.newAccount;
     $scope.resetGoogleAccounts = function() {
       Storage.set("google_accounts", {});
+    }
+
+    $scope.inboxes = [];
+
+    var accounts = Google.getAccounts();
+    for (var id in accounts) {
+      var a = accounts[id];
+
+      if (new Date() > a.expires) {
+        Google.refreshAccount(a);
+      } else {
+        Gmail.getUnreadInboxDetails(a)
+          .then(function(details) {
+            $scope.inboxes.push(details);
+          });
+      }
     }
   });

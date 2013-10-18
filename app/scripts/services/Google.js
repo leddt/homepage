@@ -88,16 +88,20 @@ angular.module('homepageApp')
       window.location.href = url;
     }
 
-    function refreshAccount(user_id_or_email) {
-      if (user_id_or_email.indexOf("@") < 0) {
-        var a = getAccounts()[user_id_or_email];
+    function refreshAccount(account) {
+      if (typeof account == "object") {
+        account = account.email || account.user_id;
+      }
+      
+      if (account.indexOf("@") < 0) {
+        var a = getAccounts()[account];
         if (a) {
-          user_id_or_email = a.email;
+          account = a.email;
         }
       }
 
       var url = baseOAuthUrl;
-      url += "&login_hint=" + encodeURIComponent(user_id_or_email);
+      url += "&login_hint=" + encodeURIComponent(account);
 
       window.location.href = url;
     }
