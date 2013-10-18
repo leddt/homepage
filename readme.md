@@ -3,8 +3,6 @@ Homepage
 
 A very basic homepage to replace my iGoogle page. Live at http://leddt-home.azurewebsites.net/
 
-Currently, no backend is necessary, but this may change if some feature needs one.
-
 Warning
 -------
 
@@ -46,3 +44,8 @@ You can setup FTP publishing by editing `Gruntfile.js`. Find the line containing
 This file is gitignored.
 
 You should then be able to run `grunt build ftp-deploy` to build the project and push the dist folder to your FTP server.
+
+Backend
+-------
+
+Some features require making requests to urls that do not allow cross-origin requests. To get around that, I built a really basic proxy. It's probably really buggy, but it seems to work for my use cases. The current setup works on Windows Azure. For other hosts, you would need to set it up so that requests to /proxy.js are handled by nodejs.
