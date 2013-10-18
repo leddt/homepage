@@ -2,9 +2,14 @@ var http = require('http'),
     https = require('https'),
     url = require('url');
 
-http.createServer(function(request, response) {
+var proxy = function(request, response, next) {
+  var reqUrl = url.parse(request.url, true);
 
-  var target = url.parse(request.url, true).query.url;
+  if (next && reqUrl.pathname != "/proxy.js") {
+    return next();
+  }
+
+  var target = reqUrl.query.url;
 
   if (!target) {
     response.end();
@@ -25,6 +30,8 @@ http.createServer(function(request, response) {
   
   if (options.headers.host) delete options.headers.host;
   if (options.headers.connection) delete options.headers.connection;
+
+  console.log("PROXY", request.method, target/*, request.headers*/);
   
   var client = secure ? https : http;
   var req = client.request(options, function (res) {
@@ -32,5 +39,10 @@ http.createServer(function(request, response) {
     res.pipe(response);
   });
   request.pipe(req);
+};
 
-}).listen(process.env.PORT || 8888);
+if (process.env.PORT) {
+  http.createServer(proxy).listen(process.env.PORT);
+} else {
+  module.exports = proxy;
+}

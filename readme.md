@@ -48,4 +48,6 @@ You should then be able to run `grunt build ftp-deploy` to build the project and
 Backend
 -------
 
-Some features require making requests to urls that do not allow cross-origin requests. To get around that, I built a really basic proxy. It's probably really buggy, but it seems to work for my use cases. The current setup works on Windows Azure. For other hosts, you would need to set it up so that requests to /proxy.js are handled by nodejs.
+Some features require making requests to urls that do not allow cross-origin requests. To get around that, I built a really basic proxy. It's probably really buggy, but it seems to work for my use cases. 
+
+The current setup works on Windows Azure and when running `grunt server`. For other hosts, you would need to set it up so that requests to /proxy.js are handled by the nodejs script (it will work as a connect middleware, or standalone).

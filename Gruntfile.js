@@ -6,6 +6,8 @@ var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
+var proxy = require('./app/proxy.js');
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -77,6 +79,7 @@ module.exports = function (grunt) {
         options: {
           middleware: function (connect) {
             return [
+              proxy,
               lrSnippet,
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
