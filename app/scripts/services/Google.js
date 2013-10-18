@@ -38,17 +38,12 @@ angular.module('homepageApp')
     }
 
     function getFullAccount(token, tokeninfo) {
-      var expires = new Date();
-      expires.setTime(expires.getTime() + (tokeninfo.expires_in - 60) * 1000); // 60s buffer
+      var account = getPartialAccount(token, tokeninfo);
 
       return gcall("userinfo/email", token)
         .then(function(response) {
-          return {
-            user_id: tokeninfo.user_id,
-            expires: expires,
-            email: response.data.data.email,
-            access_token: token
-          }
+          account.email = response.data.data.email;
+          return account;
         });
     }
 
