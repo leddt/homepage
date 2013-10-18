@@ -19,7 +19,7 @@ angular.module('homepageApp')
     for (var id in accounts) {
       var a = accounts[id];
 
-      if (new Date() > a.expires) {
+      if (new Date() > new Date(a.expires)) {
         Google.refreshAccount(a);
       } else {
         Gmail.getUnreadInboxDetails(a)
