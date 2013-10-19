@@ -3,7 +3,7 @@
 angular.module('homepageApp')
   .directive('gcal', function () {
     return {
-      template: '<iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTz=0&amp;showCalendars=0&amp;bgcolor=%23fafafa&amp;wkst=1&amp;{{calendarParameters}}ctz=America%2FNew_York" style=" border-width:0 " width="{{width}}" height="{{height}}" frameborder="0" scrolling="no"></iframe>',
+      template: '<iframe square src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTz=0&amp;showCalendars=0&amp;bgcolor=%23fafafa&amp;wkst=1&amp;{{calendarParameters}}ctz=America%2FNew_York" style=" border-width:0 " width="{{width}}" height="{{height}}" frameborder="0" scrolling="no"></iframe>',
       restrict: 'E',
       scope: {
         calendars: '=',
