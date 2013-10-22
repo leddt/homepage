@@ -80,6 +80,7 @@ angular.module('homepageApp')
     baseOAuthUrl += "&client_id=" + client_id;
     baseOAuthUrl += "&redirect_uri=" + encodeURIComponent($location.absUrl().replace(/#.*/, ''));
     baseOAuthUrl += "&scope=" + encodeURIComponent(scopes.join(" "));
+    baseOAuthUrl += "&state=google";
 
     function newAccount() {
       var url = baseOAuthUrl;
