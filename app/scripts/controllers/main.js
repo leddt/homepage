@@ -30,4 +30,15 @@ angular.module('homepageApp')
           });
       }
     }
+
+    $scope.todoaccounts = [];
+    var bc_accounts = Basecamp.getAccounts();
+    for (var id in bc_accounts) {
+      // todo: refresh expired accounts
+
+      Basecamp.getTodos(bc_accounts[id])
+        .then(function (todos) {
+          $scope.todoaccounts.push(todos);
+        });
+    }
   });

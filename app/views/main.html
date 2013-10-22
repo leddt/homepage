@@ -19,5 +19,24 @@
           </li>
         </ul>
       </div>
+
+      <div ng-show="todoaccounts.length > 0">
+        <h4>Todos</h4>
+        <ul>
+          <li ng-repeat="account in todoaccounts">
+            <strong>{{account.totalCount}}</strong> in {{account.account}}
+            <ul>
+              <li ng-repeat="list in account.lists">
+                <strong>{{list.project}}</strong> <br/> {{list.name}}
+                <ul>
+                  <li ng-repeat="item in list.items">
+                    {{item.name}}
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
 </div>
