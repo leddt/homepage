@@ -11,6 +11,7 @@ angular.module('homepageApp')
 
     function setAccount(account) {
       var accounts = getAccounts();
+
       if (accounts[account.id]) {
         for (var prop in account) {
           accounts[account.id][prop] = account[prop];
@@ -35,10 +36,6 @@ angular.module('homepageApp')
     function validateToken(accessToken, refreshToken) {
       return $http.get(proxifyFilter('https://launchpad.37signals.com/authorization.json?access_token=' + accessToken))
         .then(function (response) {
-          console.log(response.data);
-
-          var accounts = getAccounts();
-
           for (var i = 0; i < response.data.accounts.length; i++) {
             var account = response.data.accounts[i];
             if (account.product != "basecamp") continue;
@@ -50,8 +47,6 @@ angular.module('homepageApp')
 
             setAccount(account);
           }
-
-          Storage.set("basecamp_accounts", accounts);
         });
     }
 
