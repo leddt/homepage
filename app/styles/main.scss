@@ -2,7 +2,6 @@ $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 @import "bootstrap-sass/lib/bootstrap";
-@import "bootstrap-sass/lib/responsive";
 
 /* Put your CSS here */
 html, body {
@@ -16,15 +15,6 @@ body {
 }
 
 .feed {
-  .thumbnail {
-    width: 100%;
-    background-color: #fff;
-    margin-left: 0;
-    margin-bottom: 2px;
-  }
-  .caption {
-    padding: 4px;
-  }
   p { margin: 5px 0 0 0; }
 }
 
